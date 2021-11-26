@@ -3,9 +3,11 @@ import axios from 'axios';
 import { Link } from '@material-ui/core';
 import { Accordion, AccordionSummary, AccordionDetails, Typography } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import { useNavigate } from 'react-router-dom';
 
 function StudentNotes() {
     const BaseUrl = "https://eduversity-backend.herokuapp.com";
+    const navigate = useNavigate();
     const [notes, setNotes]=useState([{
         name:'',
         notes:'',
@@ -31,7 +33,7 @@ function StudentNotes() {
         </div>):(
             <h3>No Notes Availaible</h3>
         )}
-        <div className="link"><Link href="/student/home">Go Back</Link></div>  
+        <div className="link"><Link onClick={()=>navigate("/student/home")}>Go Back</Link></div>  
         </div>
     )
 }

@@ -5,9 +5,11 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import axios from 'axios';
 import './Notes.css';
+import { useNavigate } from 'react-router-dom';
 
 function FacultyNotes() {
     const BaseUrl = "https://eduversity-backend.herokuapp.com";
+    const navigate = useNavigate();
     const [show,setShow]=useState(false);
     const [input, setInput]=useState({
         name:'',
@@ -64,9 +66,7 @@ function FacultyNotes() {
                 </Accordion>
                 </div>
             )}
-            </div>  
-            <Link href="/faculty/home">Go Back</Link> 
-            </div>
+            </div><Link onClick={()=>navigate('/faculty/home')}>Go Back</Link></div>
         ):(
             <div>
             <div className="form-grp"> 
