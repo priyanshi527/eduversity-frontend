@@ -1,0 +1,6 @@
+/notes /faculty/home
+/snotes /student/home
+/faculty/home /faculty
+/student/home /student
+/faculty /
+/student /
