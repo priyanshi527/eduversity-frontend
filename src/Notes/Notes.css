@@ -1,0 +1,18 @@
+.notes-container{
+    padding: 30px;
+}
+.note{
+    box-sizing: content-box;
+    border: 2px solid black;
+    text-align: left;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding: 5px;
+}
+.text{
+    padding: 10px;
+    width: 100%;
+}
+.notes{
+    overflow: auto;
+}

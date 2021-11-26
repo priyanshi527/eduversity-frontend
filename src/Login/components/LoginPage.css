@@ -1,0 +1,29 @@
+.heading{
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+}
+.form-group{
+    padding: 100px;
+    text-align: center;
+    background-color: rgb(228, 236, 227);
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0 , 0, 0, 0.12), 0 1px 3px rgba(0 , 0, 0, 0.12);
+}
+.form{
+    color: black;
+    font-weight: 700;
+    margin-bottom: 1cm;
+    text-align: left;  
+}
+.frm-group{
+    padding: 15px;
+    padding-left: 100px;
+    padding-right: 100px;
+    text-align: center;
+    background-color: rgb(228, 236, 227);
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0 , 0, 0, 0.12), 0 1px 3px rgba(0 , 0, 0, 0.12);
+}
+.link{
+    margin-top: 15px;
+}
