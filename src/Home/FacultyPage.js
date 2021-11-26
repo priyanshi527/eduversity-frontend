@@ -5,6 +5,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router';
 
 function FacultyPage() {
+    const BaseUrl = "https://eduversity-backend.herokuapp.com";
     const [show, setShow] = useState(false);
     const handleShow = () => setShow(false);
     const handleClose = () =>setShow(true);
@@ -27,7 +28,7 @@ function FacultyPage() {
         classCapacity:''
     }]);
     const getpage = () =>{
-        axios.get(`http://localhost:3001/classes/${dept}`).then((jsonRes)=>{setClasses(jsonRes.data)})
+        axios.get(`${BaseUrl}/classes/${dept}`).then((jsonRes)=>{setClasses(jsonRes.data)})
     }
     useEffect(()=>{
         getpage();
@@ -56,7 +57,7 @@ function FacultyPage() {
                 endTime: input.endTime ,
                 classCapacity: input.classCapacity
             }
-            axios.post(`http://localhost:3001/classes/${dept}`, classdetails);
+            axios.post(`${BaseUrl}/classes/${dept}`, classdetails);
             setInput({
                 subject:'',
                 date:'',
@@ -73,7 +74,7 @@ function FacultyPage() {
         navigate('/notes');
     }
     function deleteClass(id){
-        axios.delete(`http://localhost:3001/classes/${dept}/${id}`,id);
+        axios.delete(`${BaseUrl}/classes/${dept}/${id}`,id);
     }
     return (
         <div>

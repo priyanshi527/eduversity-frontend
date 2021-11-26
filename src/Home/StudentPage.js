@@ -5,6 +5,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router';
 
 function StudentPage() {
+    const BaseUrl = "https://eduversity-backend.herokuapp.com";
     const[show,setShow]=useState(true);
     const navigate = useNavigate();
     const [classes, setClasses] = useState([{
@@ -15,7 +16,7 @@ function StudentPage() {
     }]);
     const getData =(dept) =>{
         setShow(false);
-        axios.get(`http://localhost:3001/classes/${dept}`).then((jsonRes)=>{setClasses(jsonRes.data)})
+        axios.get(`${BaseUrl}/classes/${dept}`).then((jsonRes)=>{setClasses(jsonRes.data)})
     }
     const notespage = () => {
         navigate('/snotes');

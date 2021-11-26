@@ -7,6 +7,7 @@ import axios from 'axios';
 import './Notes.css';
 
 function FacultyNotes() {
+    const BaseUrl = "https://eduversity-backend.herokuapp.com";
     const [show,setShow]=useState(false);
     const [input, setInput]=useState({
         name:'',
@@ -18,7 +19,7 @@ function FacultyNotes() {
         notes:'',
     }]);
     useEffect(()=>{
-        axios.get('http://localhost:3001/notes').then((jsonRes)=>{setNotes(jsonRes.data)})
+        axios.get(`${BaseUrl}/notes`).then((jsonRes)=>{setNotes(jsonRes.data)})
     })
     const handlechange = e =>{
         const {name,value} = e.target;
@@ -37,14 +38,14 @@ function FacultyNotes() {
                 name: input.name,
                 notes: input.notes
              }
-             axios.post('http://localhost:3001/notes', notesdetails);
+             axios.post(`${BaseUrl}/notes`, notesdetails);
         }
         else{
             alert("Enter Notes Title/Content");
         }
     }
     const deleteNotes = (id) =>{
-        axios.delete(`http://localhost:3001/notes/${id}`,id);
+        axios.delete(`${BaseUrl}/notes/${id}`,id);
     }
     return (
         <div>

@@ -6,6 +6,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 function FacultyLoginPage() {
+    const BaseUrl = "https://eduversity-backend.herokuapp.com";
     const navigate= useNavigate();
     const [show,setshow]=useState(false);
     const [input, setInput] = useState({
@@ -34,7 +35,7 @@ function FacultyLoginPage() {
             FId: input.FId,
             Password: input.Password
         }
-        axios.post('http://localhost:3001/faculty-login', facultylogin).then((result)=>{
+        axios.post(`${BaseUrl}/faculty-login`, facultylogin).then((result)=>{
             if(result.data.status === 'ok' ){
                 navigate('/faculty/home');
             }
@@ -53,7 +54,7 @@ function FacultyLoginPage() {
                 Vaccination: input.Vaccination,
                 Department: input.Department 
              }
-             axios.post('http://localhost:3001/faculty', facultydetails);
+             axios.post(`${BaseUrl}/faculty`, facultydetails);
              navigate('/faculty/home');
         }
         else{

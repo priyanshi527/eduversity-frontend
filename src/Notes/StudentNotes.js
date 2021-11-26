@@ -5,12 +5,13 @@ import { Accordion, AccordionSummary, AccordionDetails, Typography } from '@mate
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 function StudentNotes() {
+    const BaseUrl = "https://eduversity-backend.herokuapp.com";
     const [notes, setNotes]=useState([{
         name:'',
         notes:'',
     }]) 
     useEffect(()=>{
-        axios.get('http://localhost:3001/notes').then((jsonRes)=>{setNotes(jsonRes.data)})
+        axios.get(`${BaseUrl}/notes`).then((jsonRes)=>{setNotes(jsonRes.data)})
     },[])
     return (
         <div className="page">

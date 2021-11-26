@@ -6,6 +6,7 @@ import axios from 'axios';
 import {useNavigate} from 'react-router-dom';
 
 function StudentLoginPage() {
+    const BaseUrl = "https://eduversity-backend.herokuapp.com";
     const navigate= useNavigate();
     const [show,setshow]=useState(false);
     const [input, setInput] = useState({
@@ -34,7 +35,7 @@ function StudentLoginPage() {
             Rollno: input.Rollno,
             Password: input.Password
         }
-        axios.post('http://localhost:3001/student-login', studentlogin).then((result)=>{
+        axios.post(`${BaseUrl}/student-login`, studentlogin).then((result)=>{
             console.log("Got the token:", result.data)
             if(result.data.status === 'ok' ){
                 navigate('/student/home');
@@ -54,7 +55,7 @@ function StudentLoginPage() {
                 Vaccination: input.Vaccination,
                 Department:input.Department 
             }
-            axios.post('http://localhost:3001/student', studentdetails);
+            axios.post(`${BaseUrl}/student`, studentdetails);
             navigate('/student/home');
         }
         else {
